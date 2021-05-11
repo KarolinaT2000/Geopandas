@@ -212,3 +212,4 @@ plt.autoscale(False)
 ax.set_axis_on()
 plt.axis("equal");
 plt.title('liczba ludnosci w wieku powyżej 65 lat w siatce')
+
