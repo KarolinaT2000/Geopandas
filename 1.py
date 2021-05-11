@@ -231,7 +231,7 @@ ax.axis("on")
 merged = gpd.sjoin(gdf,cell, how='left', op='within')
 dissolve = merged.dissolve(by="index_right", aggfunc="sum")
 cell.loc[dissolve.index, 'FEM_RATIO']= dissolve.FEM_RATIO.values
-ax = cell.plot(column='MALE_0_14', figsize = (12,8), cmap = 'viridis', vmax = 700000, edgecolor ='grey', legend=True)
+ax = cell.plot(column='FEM_RATIO', figsize = (12,8), cmap = 'viridis', vmax = 700000, edgecolor ='grey', legend=True)
 plt.autoscale(False)
 ax.set_axis_on()
 plt.axis("equal");
