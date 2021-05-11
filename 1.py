@@ -12,13 +12,12 @@ import matplotlib.pyplot as plt
 
 
 gdf = gpd.read_file('PD_STAT_GRID_CELL_2011.shp')
-gdf.to_crs("EPSG:4326")
+gdf = gdf.to_crs("EPSG:4326")
 gdf.plot("TOT",legend=True)
 
 gdf['centroid']=gdf.centroid
-
+#%%
 import shapely
-
 xmin, ymin,xmax,ymax = [13,48,25,56]
 
 n_cells = 30
@@ -35,7 +34,7 @@ cell = gpd.GeoDataFrame(grid_cells, columns=['geometry'])
 ax = gdf.plot(markersize =.1, figsize=(12,8), column='TOT',cmap = 'jet')  
 plt.autoscale(False)
 cell.plot(ax=ax, facecolor="none", edgecolor = 'grey')
-ax.axis("off") 
+ax.axis("on") 
 
 merged = gpd.sjoin(gdf,cell, how='left', op='within')
 dissolve = merged.dissolve(by="index_right", aggfunc="sum")
@@ -43,7 +42,7 @@ cell.loc[dissolve.index, 'TOT']= dissolve.TOT.values
 
 ax = cell.plot(column='TOT', figsize = (12,8), cmap = 'viridis', vmax = 700000, edgecolor ='grey', legend=True)
 plt.autoscale(False)
-ax.set_axis_off()
+ax.set_axis_on()
 plt.axis('equal');
 plt.title('liczba ludnosci w siatce')
 
