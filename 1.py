@@ -169,6 +169,8 @@ ax.set_axis_on()
 plt.axis("equal");
 plt.title('liczba ludnosci w wieku powyżej 65 lat w siatce')
 
+#w podpunktach d i e wystarczy skorzystać z kodów dla punktów a, b i c zmieniając tylko nazwę kolumny
+
 #%%D
 import geopandas as gpd
 import pandas as pd
