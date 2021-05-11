@@ -44,6 +44,6 @@ cell.loc[dissolve.index, 'TOT']= dissolve.TOT.values
 ax = cell.plot(column='TOT', figsize = (12,8), cmap = 'viridis', vmax = 700000, edgecolor ='grey', legend=True)
 plt.autoscale(False)
 ax.set_axis_off()
-plt.axis("equal");
+plt.axis('equal');
 plt.title('liczba ludnosci w siatce')
 
